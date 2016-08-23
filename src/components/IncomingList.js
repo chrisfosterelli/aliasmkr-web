@@ -4,7 +4,6 @@
 
 const React       = require('react')
 const ReactRouter = require('react-router')
-const AliasEditor = require('./aliasEditor')
 const axios       = require('../axios')
 
 const Link = ReactRouter.Link
