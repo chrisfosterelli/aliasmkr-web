@@ -1,13 +1,11 @@
 
-/* Main container
+/* App layout
  */
 
-const React       = require('react')
-const ReactRouter = require('react-router')
-const auth        = require('../auth')
-const Header      = require('./header')
-
-const Link = ReactRouter.Link
+import React from 'react'
+import auth from '../auth'
+import Header from './Header'
+import { Link } from 'react-router'
 
 const divStyle = {
   height : '75%',
@@ -23,26 +21,13 @@ const linkStyle = {
   top : '5px'
 }
 
-const App = React.createClass({
-  
-  getInitialState() {
-    const loggedIn = auth.hasToken()
-    return { loggedIn }
-  },
-
-  updateAuth(loggedIn) {
-    this.setState({ loggedIn })
-  },
-
-  componentWillMount() {
-    auth.onChange = this.updateAuth
-  },
+class App extends React.Component {
 
   render() {
     return (
       <div style={divStyle}>
         <Header/>
-        { this.state.loggedIn ? (
+        { this.props.loggedIn ? (
             <Link style={linkStyle} to="/logout">
               Log out
             </Link>
@@ -52,6 +37,6 @@ const App = React.createClass({
     )
   }
 
-})
+}
 
-module.exports = App
+export default App
