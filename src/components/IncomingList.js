@@ -2,37 +2,23 @@
 /* Domain editing page 
  */
 
-const React       = require('react')
-const ReactRouter = require('react-router')
-const axios       = require('../axios')
-
-const Link = ReactRouter.Link
+import React from 'react'
+import { Link } from 'react-router'
+import axios from '../axios'
 
 const linkStyle = {
   paddingLeft : '.5em'
 }
 
-const Domain = React.createClass({
-
-  getInitialState() {
-    const aliases = []
-    return { aliases }
-  },
+class IncomingList extends React.Component {
 
   componentDidMount() {
     const domain = this.props.params.domain
-    const params = { domain }
-    const opts = { params }
-    this.req = axios()
-    .get('/alias', opts)
-    .then(res => {
-      const aliases = res.data
-      this.setState({ aliases })
-    })
-  },
+    this.props.fetchAliases(domain)
+  }
 
   render() {
-    const aliases = this.state.aliases
+    const aliases = this.props.aliases.items
     const domain = this.props.params.domain
     return (
       <div>
@@ -51,6 +37,6 @@ const Domain = React.createClass({
     )
   }
 
-})
+}
 
-module.exports = Domain
+export default IncomingList

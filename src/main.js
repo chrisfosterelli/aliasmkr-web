@@ -13,7 +13,7 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import MainApp from './containers/MainApp'
 import UserDomainList from './containers/UserDomainList'
-import IncomingList from './components/IncomingList'
+import DomainIncomingList from './containers/DomainIncomingList'
 import OutgoingList from './components/OutgoingList'
 import rootReducer from './reducers/root'
 
@@ -29,7 +29,7 @@ ReactDOM.render((
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout}/>
         <Route path="/domains" component={UserDomainList}/>
-        <Route path="/domains/:domain" component={IncomingList}/>
+        <Route path="/domains/:domain" component={DomainIncomingList}/>
         <Route path="/domains/:domain/aliases/:alias" component={OutgoingList}/>
       </Route>
     </Router>

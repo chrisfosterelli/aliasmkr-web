@@ -11,8 +11,8 @@ export function requestDomains() {
   return { type }
 }
 
-export function receiveDomains(entries) {
-  const payload = entries
+export function receiveDomains(domains) {
+  const payload = domains
   const type = types.FETCH_DOMAINS_SUCCESS
   return { type, payload }
 }
@@ -33,7 +33,6 @@ export function fetchDomains() {
     axios().get('/domain', opts)
     .then(res => {
       const domains = res.data
-      console.log('domains!!')
       dispatch(receiveDomains(domains))
     })
     .catch(err => {
