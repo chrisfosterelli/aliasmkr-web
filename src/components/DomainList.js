@@ -2,21 +2,19 @@
 /* Domain listings page 
  */
 
-const React       = require('react')
-const ReactRouter = require('react-router')
-
-const Link = ReactRouter.Link
+import React from 'react'
+import { Link } from 'react-router'
 
 const linkStyle = {
   paddingRight : '30px',
   paddingLeft : '30px'
 }
 
-const Domains = React.createClass({
+class Domains extends React.Component {
 
   componentDidMount() {
     this.props.fetchDomains()
-  },
+  }
 
   render() {
     const domains = this.props.domains.items
@@ -34,6 +32,6 @@ const Domains = React.createClass({
     )
   }
 
-})
+}
 
 module.exports = Domains
