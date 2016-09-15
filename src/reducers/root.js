@@ -3,10 +3,8 @@
  */
 
 import { combineReducers } from 'redux'
+import domains from './domains'
+import user from './user'
 
-function demo(state = {}, action) {
-  return state
-}
-
-const root = combineReducers({ demo })
+const root = combineReducers({ user, domains })
 export default root

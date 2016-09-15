@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <div style={divStyle}>
         <Header/>
-        { this.props.loggedIn ? (
+        { this.props.isLoggedIn ? (
             <Link style={linkStyle} to="/logout">
               Log out
             </Link>
