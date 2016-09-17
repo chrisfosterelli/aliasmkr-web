@@ -14,7 +14,7 @@ import Logout from './components/Logout'
 import MainApp from './containers/MainApp'
 import UserDomainList from './containers/UserDomainList'
 import DomainIncomingList from './containers/DomainIncomingList'
-import OutgoingList from './components/OutgoingList'
+import AliasOutgoingList from './containers/AliasOutgoingList'
 import rootReducer from './reducers/root'
 
 const middleware = applyMiddleware(thunk)
@@ -30,7 +30,10 @@ ReactDOM.render((
         <Route path="/logout" component={Logout}/>
         <Route path="/domains" component={UserDomainList}/>
         <Route path="/domains/:domain" component={DomainIncomingList}/>
-        <Route path="/domains/:domain/aliases/:alias" component={OutgoingList}/>
+        <Route 
+          path="/domains/:domain/aliases/:alias"
+          component={AliasOutgoingList}
+        />
       </Route>
     </Router>
   </Provider>

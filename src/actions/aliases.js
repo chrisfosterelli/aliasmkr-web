@@ -19,7 +19,7 @@ export function receiveAliases(aliases) {
 export function failAliases(err) {
   const error = true
   const payload = err
-  const type = types.FETCH_DOMAINS_FAILURE
+  const type = types.FETCH_ALIASES_FAILURE
   return { type, payload, error }
 }
 

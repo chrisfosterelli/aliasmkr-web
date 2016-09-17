@@ -2,39 +2,25 @@
 /* Alias editing page 
  */
 
-const React       = require('react')
-const ReactRouter = require('react-router')
-const axios       = require('../axios')
-
-const Link = ReactRouter.Link
+import React from 'react'
+import { Link } from 'react-router'
+import axios from '../axios'
 
 const linkStyle = {
   paddingLeft : '.5em'
 }
 
-const AliasEditor = React.createClass({
-
-  getInitialState() {
-    const outgoing = []
-    const alias = { outgoing }
-    return { alias }
-  },
+class OutgoingList extends React.Component {
 
   componentDidMount() {
     const alias = this.props.params.alias
-    const params = { alias }
-    const opts = { params }
-    this.req = axios()
-    .get('/alias/' + alias)
-    .then(res => {
-      const alias = res.data
-      this.setState({ alias })
-    })
-  },
+    this.props.fetchAlias(alias)
+  }
 
   render() {
-    const alias = this.state.alias
+    const alias = this.props.alias.item
     const domain = this.props.params.domain
+    if (!alias.incoming) return <div></div>
     return (
       <div>
         you're configuring {domain}
@@ -52,6 +38,6 @@ const AliasEditor = React.createClass({
     )
   }
 
-})
+}
 
-module.exports = AliasEditor
+export default OutgoingList
