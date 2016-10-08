@@ -27,7 +27,10 @@ export function createOutgoing(alias, email) {
   return dispatch => {
     dispatch(requestCreateOutgoing())
     const url = `/alias/${alias}/outgoing`
-    axios().post(url, email, { headers : { 'Content-Type' : 'text/plain' } })
+    const headers = { 'Content-Type' : 'text/plain' }
+    const options = { headers }
+    axios()
+    .post(url, email, options)
     .then(res => {
       const alias = res.data
       dispatch(receiveCreateOutgoing(alias))
