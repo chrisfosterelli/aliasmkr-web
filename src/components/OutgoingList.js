@@ -5,6 +5,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import axios from '../axios'
+import OutgoingAliasCreator from '../containers/OutgoingAliasCreator'
 
 const linkStyle = {
   paddingLeft : '.5em'
@@ -34,6 +35,7 @@ class OutgoingList extends React.Component {
             </div>
           })
         }
+        <OutgoingAliasCreator />
       </div>
     )
   }

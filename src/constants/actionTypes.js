@@ -3,7 +3,6 @@
  * List of all actions used by action creators
  */
 
-// Not in love with these...
 export const FETCH_TOKEN = 'FETCH_TOKEN'
 export const FETCH_TOKEN_SUCCESS = 'FETCH_TOKEN_SUCCESS'
 export const FETCH_TOKEN_FAILURE = 'FETCH_TOKEN_FAILURE'
@@ -19,3 +18,7 @@ export const FETCH_ALIASES_FAILURE = 'FETCH_ALIASES_FAILURE'
 export const FETCH_ALIAS = 'FETCH_ALIAS'
 export const FETCH_ALIAS_SUCCESS = 'FETCH_ALIAS_SUCCESS'
 export const FETCH_ALIAS_FAILURE = 'FETCH_ALIAS_FAILURE'
+
+export const CREATE_OUTGOING = 'CREATE_OUTGOING'
+export const CREATE_OUTGOING_SUCCESS = 'CREATE_OUTGOING_SUCCESS'
+export const CREATE_OUTGOING_FAILURE = 'CREATE_OUTGOING_FAILURE'
