@@ -40,3 +40,36 @@ export function createOutgoing(alias, email) {
     })
   }
 }
+
+export function requestDeleteOutgoing() {
+  const type = types.DELETE_OUTGOING
+  return { type }
+}
+
+export function receiveDeleteOutgoing(outgoing) {
+  const payload = outgoing
+  const type = types.DELETE_OUTGOING_SUCCESS
+  return { type, payload }
+}
+
+export function failDeleteOutgoing(err) {
+  const error = true
+  const payload = err
+  const type = types.DELETE_OUTGOING_FAILURE
+  return { type, payload, error }
+}
+
+export function deleteOutgoing(alias, email) {
+  return dispatch => {
+    dispatch(requestDeleteOutgoing())
+    const url = `/alias/${alias}/outgoing/${email}`
+    axios()
+    .delete(url)
+    .then(res => {
+      dispatch(receiveDeleteOutgoing(email))
+    })
+    .catch(err => {
+      dispatch(failDeleteOutgoing(err))
+    })
+  }
+}

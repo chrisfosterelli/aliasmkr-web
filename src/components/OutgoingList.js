@@ -6,6 +6,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import axios from '../axios'
 import OutgoingAliasCreator from '../containers/OutgoingAliasCreator'
+import OutgoingAliasDeleteButton from '../containers/OutgoingAliasDeleteButton'
 
 const linkStyle = {
   paddingLeft : '.5em'
@@ -32,6 +33,7 @@ class OutgoingList extends React.Component {
         { alias.outgoing.map(outgoing => {
             return <div key={outgoing}>
               {outgoing}
+              <OutgoingAliasDeleteButton email={outgoing} />
             </div>
           })
         }

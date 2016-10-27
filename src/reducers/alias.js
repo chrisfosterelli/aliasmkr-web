@@ -42,6 +42,20 @@ function alias(state = initial, action) {
     case types.CREATE_OUTGOING_FAILURE: {
       alert('Unhandled error case')
     }
+    case types.DELETE_OUTGOING: {
+      /* Nothing to do here... */
+      return state
+    }
+    case types.DELETE_OUTGOING_SUCCESS: {
+      const item = _.clone(state.item)
+      const filter = outgoing => outgoing != action.payload
+      item.outgoing = item.outgoing.filter(filter)
+      const stateChange = { item }
+      return Object.assign({}, state, stateChange)
+    }
+    case types.DELETE_OUTGOING_FAILURE: {
+      alert('Unhandled error case')
+    }
   }
   return state
 }
