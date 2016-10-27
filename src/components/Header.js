@@ -2,7 +2,7 @@
 /* Title header
  */
 
-const React = require('react')
+import React from 'react'
 
 const divStyle = {
   textAlign : 'center'
@@ -21,7 +21,8 @@ const h3Style = {
   marginTop : 0
 }
 
-const Header = React.createClass({
+class Header extends React.Component {
+
   render() {
     return (
       <div style={divStyle}>
@@ -34,6 +35,7 @@ const Header = React.createClass({
       </div>
     )
   }
-})
 
-module.exports = Header
+}
+
+export default Header
