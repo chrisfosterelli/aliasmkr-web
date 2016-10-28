@@ -7,7 +7,7 @@ const axios = require('axios')
 const auth  = require('./auth')
 
 function getInstance() {
-  const baseURL = 'http://localhost:9999'
+  const baseURL = 'https://api.aliasmkr.com'
   const Authorization = 'Bearer ' + auth.getToken()
   const headers = auth.hasToken() ? { Authorization } : {}
   return axios.create({ baseURL, headers })
